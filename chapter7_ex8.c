@@ -39,12 +39,12 @@ int main(void)
     case 5:
         break;
     default:
-        printf("Неправильно набрано число");
+        printf("Неправильно набрано число\n");
         break;
     }
     if (choice < 1 || choice > 5)
     {
-        break;
+        continue;
     }
     if (choice == 5)
     {
