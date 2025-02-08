@@ -12,41 +12,43 @@ int main(void)
     }
     double MONEY_FOR_HOUR;
     printf("\n\n");
-    printf("Введите число, соответствующее желаемой тарифной ставке или действию: \n");
-    printf("1) $8.75/ч \t\t\t\t 2) $9.33/ч\n");
-    printf("3) $10.00/ч\t\t\t\t 4) $11.20/ч\n");
-    printf("5) Выход\n");
+    printf("Введите букву, соответствующее желаемой тарифной ставке или действию: \n");
+    printf("a) $8.75/ч \t\t\t\t b) $9.33/ч\n");
+    printf("c) $10.00/ч\t\t\t\t d) $11.20/ч\n");
+    printf("q) Выход\n");
     for (int i = 0 ; i < 100 ; i ++)
     {
         printf("*");
     }
     printf("\n");
     int choice;
-    scanf("%d" , &choice);
+    choice = getchar();
+    while (getchar() != '\n');
     switch (choice)
     {
-    case 1:
+    case 'a':
         MONEY_FOR_HOUR = 8.75;
         break;
-    case 2:
+    case 'b':
         MONEY_FOR_HOUR = 9.33;
         break;
-    case 3:
+    case 'c':
         MONEY_FOR_HOUR = 10.00;
         break;
-    case 4:
+    case 'd':
         MONEY_FOR_HOUR = 11.20;
-    case 5:
+        break;
+    case 'q':
         break;
     default:
-        printf("Неправильно набрано число\n");
+        printf("Неправильно набрана буква\n");
         break;
     }
-    if (choice < 1 || choice > 5)
+    if (( choice < 97 || choice > 100 ) && ( choice != 'q'))
     {
         continue;
     }
-    if (choice == 5)
+    if (choice == 'q')
     {
         flag = false;
         break;
@@ -54,6 +56,7 @@ int main(void)
     int hours_a_week ; 
     printf("Введите количество отработанных часов за неделю\n");
     scanf("%d" , &hours_a_week);
+    while (getchar() != '\n');
     double sum_normal = 0;
     double sum_tax = 0;
     sum_normal = hours_a_week > 40 ? MONEY_FOR_HOUR * 40 + 1.5 * MONEY_FOR_HOUR * (hours_a_week - 40) : MONEY_FOR_HOUR * hours_a_week;
