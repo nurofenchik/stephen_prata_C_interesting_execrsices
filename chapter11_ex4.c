@@ -31,7 +31,6 @@ int main(void)
         }
         else{
             flag = 0;
-
         }
     }
     *ptr = '\0';
